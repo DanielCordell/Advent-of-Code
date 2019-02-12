@@ -18,7 +18,7 @@ fun main() {
     val map = HashMap<Pair<Int, Int>, Int>()
     for (x in minX..maxX) {
         for (y in minY..maxY) {
-            map.put(Pair(x, y), manhattansum(x, y, inputs))
+            map.put(Pair(x, y), getclosestpoint(x, y, inputs))
         }
     }
     val setofremovals = mutableSetOf<Int>()
@@ -31,7 +31,7 @@ fun main() {
 
 }
 
-private fun manhattansum(x: Int, y: Int, inputs: ArrayList<Pair<Int,Int>>): Int {
+private fun getclosestpoint(x: Int, y: Int, inputs: ArrayList<Pair<Int,Int>>): Int {
     val inputsWithDistance = inputs.associate { it to abs(x - it.first) + abs(y - it.second) }
     val minvalue = inputsWithDistance.values.min()!!
     return when (inputsWithDistance.values.count { it == minvalue }) {
