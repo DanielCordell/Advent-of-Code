@@ -31,4 +31,10 @@ public static class Shared
         Regex rx = new Regex(regex);
         return ReadAll(path).Select(it => rx.Match(it)).ToList();
     }
+
+    public static List<string> ReadAllSplitByRegex(string path, string regex)
+    {
+        Regex rx = new Regex(regex);
+        return rx.Split(path).ToList();
+    }
 }
