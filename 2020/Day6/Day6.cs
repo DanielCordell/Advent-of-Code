@@ -17,10 +17,10 @@ int Part1()
 int Part2()
 {
     return inputs
-    .Select(it => it.Split(Environment.NewLine)
-        .Aggregate((prev, next) => string.Join("", prev.Intersect(next)))
-        .Count()
-    ).Sum();
+        .Select(it => it.Split(Environment.NewLine)
+            .Aggregate((prev, next) => string.Join("", prev.Intersect(next)))
+            .Count()
+        ).Sum();
 }
 
 Console.WriteLine("Part1: " + Part1());
