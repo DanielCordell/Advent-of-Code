@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
+DateTime dt = DateTime.Now;
+
 List<Match> inputs = Shared.ReadAllToRegex(Day7.Properties.Resources.Input, @"([a-z]+ [a-z]+) bags contain (.*)\.");
 
 Dictionary<string, Dictionary<string, int>> bags = inputs
@@ -35,3 +37,7 @@ int Task2()
 
 Console.WriteLine("Task1: " + Task1());
 Console.WriteLine("Task2: " + Task2());
+
+DateTime dt2 = DateTime.Now;
+
+Console.WriteLine(dt2 - dt);
