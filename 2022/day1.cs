@@ -7,7 +7,7 @@ public class Program
 	{
 		var work = input.Split("\n\n").Select(x => x.Split('\n').Select(int.Parse).Sum());
 		var part1 = work.Max();
-		var part2 = work.OrderDescending().Chunk(3).First().Sum();
+		var part2 = work.OrderDescending().Take(3).Sum();
 		Console.WriteLine($"{part1} {part2}");
 	}
 	
