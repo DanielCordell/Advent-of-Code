@@ -11,7 +11,8 @@ public class Program
 			.Select(cs => cs[0].Intersect(cs[1]).First())
 			.Sum(convert);
 		
-		var second = formatted.Chunk(3).SelectMany(x => x.Skip(1).Aggregate(x.First().AsEnumerable(), (acc, next) => acc.Intersect(next)))
+		var second = formatted.Chunk(3)
+			.SelectMany(x => x.Skip(1).Aggregate(x.First().AsEnumerable(), (acc, next) => acc.Intersect(next)))
 			.Sum(convert);
 		Console.WriteLine(first + " " + second);
 	}
