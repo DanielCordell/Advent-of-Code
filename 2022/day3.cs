@@ -6,8 +6,11 @@ public class Program
 	public static void Main()
 	{
 		var formatted = input.Split('\n');
-		var first = formatted.Select(x => x.Chunk(x.Count() / 2).ToArray())
-			.Aggregate(0, (acc, next) => {char c = next[0].Intersect(next[1]).First(); return acc + convert(c);});
+		var first = formatted
+			.Select(x => x.Chunk(x.Count() / 2).ToArray())
+			.Select(cs => cs[0].Intersect(cs[1]).First())
+			.Sum(convert);
+		
 		var second = formatted.Chunk(3).SelectMany(x => x.Skip(1).Aggregate(x.First().AsEnumerable(), (acc, next) => acc.Intersect(next)))
 			.Sum(convert);
 		Console.WriteLine(first + " " + second);
